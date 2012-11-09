@@ -1,0 +1,28 @@
+#!/usr/bin/python
+import re
+import sys
+
+import CollCount, read, inducedEdge
+
+if len(sys.argv) >= 2 :
+ samplemethod = int(sys.argv[1])
+else :
+ samplemethod = 0
+if len(sys.argv) >= 3 :
+ bd = sys.argv[2]
+else :
+ bd = 0
+if len(sys.argv) >= 4 :
+ theta = sys.argv[3]
+else :
+ theta = 1
+if theta < 1 :
+ theta = 1
+
+ 
+sampleList = read.readsample("samplelist.txt")
+friendList = read.readfriend("friendlist.txt")
+if samplemethod == 0 :
+ CollCount.collisionCount(sampleList, int(bd), int(theta))
+else :
+ inducedEdge.inducedEdge(sampleList, friendList, int(bd), int(theta))
